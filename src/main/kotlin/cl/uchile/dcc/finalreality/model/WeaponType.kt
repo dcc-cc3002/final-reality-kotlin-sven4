@@ -1,4 +1,4 @@
-package cl.uchile.dcc.finalreality.model.character
+package cl.uchile.dcc.finalreality.model
 
 /**
  * Enumeration of all the weapon types.
