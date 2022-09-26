@@ -1,5 +1,6 @@
 package cl.uchile.dcc.finalreality.model
 
+import cl.uchile.dcc.finalreality.model.character.WeaponType
 import java.util.Objects
 
 /**
@@ -39,14 +40,4 @@ class Weapon(
     override fun hashCode() = Objects.hash(Weapon::class, name, damage, weight, type)
 
     override fun toString() = "Weapon { name: $name, damage: $damage, weight: $weight, type: $type)"
-}
-
-/**
- * Enumeration of all the weapon types.
- *
- * @author <a href="https://www.github.com/r8vnhill">R8V</a>
- * @author ~Your name~
- */
-enum class WeaponType {
-    SWORD, AXE, KNIFE, STAFF, BOW
 }
