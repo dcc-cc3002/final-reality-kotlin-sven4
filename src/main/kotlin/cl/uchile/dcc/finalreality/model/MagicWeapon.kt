@@ -17,7 +17,7 @@ import java.util.Objects
  *     The base magic damage done by the magic weapon.
  *
  * @constructor Creates a weapon with a name, a base damage, speed, it's type,
- *              and a base magic damage.
+ *              and base magic damage.
  *
  * @author <a href="https://www.github.com/sven4">sven4</a>
  * @author ~Salvador Vasquez~
