@@ -28,7 +28,7 @@ class MagicWeapon(
     weight: Int,
     type: WeaponType,
     val magicDamage: Int
-) : Weapon(name, damage, weight, type) {
+) : PhysicalWeapon(name, damage, weight, type) {
     override fun equals(other: Any?) = when {
         this === other -> true
         other !is MagicWeapon -> false
@@ -43,6 +43,11 @@ class MagicWeapon(
 
     override fun hashCode() = Objects.hash(MagicWeapon::class, name, damage, weight, type, magicDamage)
 
-    override fun toString() = "MagicWeapon { name: $name, damage: $damage, weight: $weight, " +
-        "type: $type, magicDamage: $magicDamage }"
+    override fun toString() = "MagicWeapon { " +
+        "name: $name, " +
+        "damage: $damage, " +
+        "weight: $weight, " +
+        "type: $type, " +
+        "magicDamage: $magicDamage " +
+        "}"
 }

@@ -25,8 +25,12 @@ import java.util.concurrent.BlockingQueue
  * @author <a href="https://www.github.com/sven4">sven4</a>
  * @author ~Salvador Vasquez~
  */
-class Thief(name: String, maxHp: Int, defense: Int, turnsQueue: BlockingQueue<GameCharacter>) :
-    AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
+class Thief(
+    name: String,
+    maxHp: Int,
+    defense: Int,
+    turnsQueue: BlockingQueue<GameCharacter>
+) : AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
 
     override fun equals(other: Any?) = when {
         this === other -> true
@@ -40,6 +44,10 @@ class Thief(name: String, maxHp: Int, defense: Int, turnsQueue: BlockingQueue<Ga
 
     override fun hashCode() = Objects.hash(Thief::class, name, maxHp, defense)
 
-    override fun toString() =
-        "Thief { maxHp=$maxHp, currentHp=$currentHp, defense=$defense, name='$name' } "
+    override fun toString() = "Thief { " +
+        "name: $name, " +
+        "maxHp: $maxHp, " +
+        "currentHp: $currentHp, " +
+        "defense: $defense " +
+        "}"
 }

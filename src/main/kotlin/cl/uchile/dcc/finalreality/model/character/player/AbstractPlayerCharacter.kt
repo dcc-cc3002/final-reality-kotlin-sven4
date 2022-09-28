@@ -7,10 +7,13 @@
  */
 package cl.uchile.dcc.finalreality.model.character.player
 
-import cl.uchile.dcc.finalreality.model.Weapon
+import cl.uchile.dcc.finalreality.model.PhysicalWeapon
 import cl.uchile.dcc.finalreality.model.character.AbstractCharacter
 import cl.uchile.dcc.finalreality.model.character.GameCharacter
 import java.util.concurrent.BlockingQueue
+import java.util.concurrent.Executors
+import java.util.concurrent.ScheduledExecutorService
+import java.util.concurrent.TimeUnit
 
 /**
  * A class that holds all the information of a player-controlled character in the game.
@@ -21,8 +24,8 @@ import java.util.concurrent.BlockingQueue
  * @param turnsQueue  the queue with the characters waiting for their turn
  * @constructor Creates a new playable character.
  *
- * @author <a href="https://www.github.com/r8vnhill">R8V</a>
- * @author ~Your name~
+ * @author <a href="https://www.github.com/sven4">sven4</a>
+ * @author ~Salvador Vasquez~
  */
 abstract class AbstractPlayerCharacter(
     name: String,
@@ -31,11 +34,29 @@ abstract class AbstractPlayerCharacter(
     turnsQueue: BlockingQueue<GameCharacter>
 ) : AbstractCharacter(name, maxHp, defense, turnsQueue), PlayerCharacter {
 
-    private lateinit var _equippedWeapon: Weapon
-    override val equippedWeapon: Weapon
+    private lateinit var scheduledExecutor: ScheduledExecutorService
+    private lateinit var _equippedWeapon: PhysicalWeapon
+    override val equippedWeapon: PhysicalWeapon
         get() = _equippedWeapon
 
-    override fun equip(weapon: Weapon) {
+    override fun equip(weapon: PhysicalWeapon) {
         _equippedWeapon = weapon
+    }
+
+    override fun waitTurn() {
+        scheduledExecutor = Executors.newSingleThreadScheduledExecutor()
+        scheduledExecutor.schedule(
+            /* command = */ ::addToQueue,
+            /* delay = */ (this.equippedWeapon.weight / 10).toLong(),
+            /* unit = */ TimeUnit.SECONDS
+        )
+    }
+
+    /**
+     * Adds this character to the turns queue.
+     */
+    private fun addToQueue() {
+        turnsQueue.put(this)
+        scheduledExecutor.shutdown()
     }
 }

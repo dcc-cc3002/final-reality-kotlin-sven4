@@ -19,7 +19,7 @@ import java.util.Objects
  * @author <a href="https://www.github.com/sven4">sven4</a>
  * @author ~Salvador Vasquez~
  */
-open class Weapon(
+open class PhysicalWeapon(
     val name: String,
     val damage: Int,
     val weight: Int,
@@ -27,7 +27,7 @@ open class Weapon(
 ) {
     override fun equals(other: Any?) = when {
         this === other -> true
-        other !is Weapon -> false
+        other !is PhysicalWeapon -> false
         hashCode() != other.hashCode() -> false
         name != other.name -> false
         damage != other.damage -> false
@@ -36,7 +36,7 @@ open class Weapon(
         else -> true
     }
 
-    override fun hashCode() = Objects.hash(Weapon::class, name, damage, weight, type)
+    override fun hashCode() = Objects.hash(PhysicalWeapon::class, name, damage, weight, type)
 
     override fun toString() = "Weapon { name: $name, damage: $damage, weight: $weight, type: $type }"
 }

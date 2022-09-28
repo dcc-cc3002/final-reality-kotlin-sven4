@@ -48,8 +48,9 @@ class Engineer(
         Objects.hash(Engineer::class, name, maxHp, defense)
 
     override fun toString() = "Engineer { " +
-        "name: '$name', " +
+        "name: $name, " +
         "maxHp: $maxHp, " +
+        "currentHp: $currentHp, " +
         "defense: $defense " +
         "}"
 }
