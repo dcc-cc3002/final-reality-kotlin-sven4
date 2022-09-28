@@ -1,10 +1,5 @@
 package cl.uchile.dcc.finalreality.model.character.player
 
-import cl.uchile.dcc.finalreality.exceptions.Require
-import cl.uchile.dcc.finalreality.model.character.GameCharacter
-
-import java.util.concurrent.BlockingQueue
-
 /**
  * A mage superclass for [WhiteMage] and [BlackMage], it's a type of [PlayerCharacter]
  *
@@ -22,16 +17,10 @@ import java.util.concurrent.BlockingQueue
  * @author ~Salvador Vasquez~
  */
 
-open class Mage(
-    name: String,
-    maxHp: Int,
-    maxMp: Int,
-    defense: Int,
-    turnsQueue: BlockingQueue<GameCharacter>
-) : AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
-    val maxMp = Require.Stat(maxMp, "Max MP") atLeast 0
-    var currentMp: Int = maxMp
-        set(value) {
-            field = Require.Stat(value, "Current MP") inRange 0..maxMp
-        }
+interface Mage {
+    val name: String
+    val maxHp: Int
+    val maxMp: Int
+    var currentMp: Int
+    val defense: Int
 }

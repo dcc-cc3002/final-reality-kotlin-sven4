@@ -7,6 +7,7 @@
  */
 package cl.uchile.dcc.finalreality.model.character.player
 
+import cl.uchile.dcc.finalreality.exceptions.Require
 import cl.uchile.dcc.finalreality.model.character.GameCharacter
 import java.util.Objects
 import java.util.concurrent.BlockingQueue
@@ -24,8 +25,8 @@ import java.util.concurrent.BlockingQueue
  * @property currentMp The current MP of the character.
  * @property currentHp The current HP of the character.
  *
- * @author <a href="https://www.github.com/r8vnhill">R8V</a>
- * @author ~Your name~
+ * @author <a href="https://www.github.com/sven4">sven4</a>
+ * @author ~Salvador Vasquez~
  */
 class BlackMage(
     name: String,
@@ -33,7 +34,12 @@ class BlackMage(
     maxMp: Int,
     defense: Int,
     turnsQueue: BlockingQueue<GameCharacter>
-) : Mage(name, maxHp, maxMp, defense, turnsQueue) {
+) : AbstractPlayerCharacter(name, maxHp, defense, turnsQueue), Mage {
+    override val maxMp = Require.Stat(maxMp, "Max MP") atLeast 0
+    override var currentMp: Int = maxMp
+        set(value) {
+            field = Require.Stat(value, "Current MP") inRange 0..maxMp
+        }
 
     override fun equals(other: Any?) = when {
         this === other -> true

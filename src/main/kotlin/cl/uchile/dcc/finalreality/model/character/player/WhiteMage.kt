@@ -7,8 +7,9 @@
  */
 package cl.uchile.dcc.finalreality.model.character.player
 
+import cl.uchile.dcc.finalreality.exceptions.Require
 import cl.uchile.dcc.finalreality.model.character.GameCharacter
-import java.util.*
+import java.util.Objects
 import java.util.concurrent.BlockingQueue
 
 /**
@@ -28,27 +29,31 @@ import java.util.concurrent.BlockingQueue
  * @author ~Salvador Vasquez~
  */
 class WhiteMage(
-  name: String,
-  maxHp: Int,
-  maxMp: Int,
-  defense: Int,
-  turnsQueue: BlockingQueue<GameCharacter>
-) : Mage(name, maxHp, maxMp, defense, turnsQueue) {
-
+    name: String,
+    maxHp: Int,
+    maxMp: Int,
+    defense: Int,
+    turnsQueue: BlockingQueue<GameCharacter>
+) : AbstractPlayerCharacter(name, maxHp, defense, turnsQueue), Mage {
+    override val maxMp = Require.Stat(maxMp, "Max MP") atLeast 0
+    override var currentMp: Int = maxMp
+        set(value) {
+            field = Require.Stat(value, "Current MP") inRange 0..maxMp
+        }
     override fun equals(other: Any?) = when {
-        this === other                 -> true
-        other !is WhiteMage            -> false
+        this === other -> true
+        other !is WhiteMage -> false
         hashCode() != other.hashCode() -> false
-        name != other.name             -> false
-        maxHp != other.maxHp           -> false
-        maxMp != other.maxMp           -> false
-        defense != other.defense       -> false
-        else                           -> true
+        name != other.name -> false
+        maxHp != other.maxHp -> false
+        maxMp != other.maxMp -> false
+        defense != other.defense -> false
+        else -> true
     }
 
     override fun hashCode() = Objects.hash(WhiteMage::class, name, maxHp, maxMp, defense)
 
     override fun toString() =
-      "WhiteMage(currentMp=$currentMp, maxMp=$maxMp, maxHp=$maxHp, currentHp=$currentHp, " +
-        "defense=$defense, name='$name')"
+        "WhiteMage { currentMp=$currentMp, maxMp=$maxMp, maxHp=$maxHp, currentHp=$currentHp, " +
+            "defense=$defense, name='$name' } "
 }

@@ -28,7 +28,7 @@ class MagicWeapon(
     weight: Int,
     type: WeaponType,
     val magicDamage: Int
-) : Weapon(name, damage, weight, type){
+) : Weapon(name, damage, weight, type) {
     override fun equals(other: Any?) = when {
         this === other -> true
         other !is MagicWeapon -> false
