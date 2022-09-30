@@ -7,9 +7,9 @@
  */
 package cl.uchile.dcc.finalreality.model.character.player
 
-import cl.uchile.dcc.finalreality.model.PhysicalWeapon
 import cl.uchile.dcc.finalreality.model.character.AbstractCharacter
 import cl.uchile.dcc.finalreality.model.character.GameCharacter
+import cl.uchile.dcc.finalreality.model.weapon.Weapon
 import java.util.concurrent.BlockingQueue
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledExecutorService
@@ -35,11 +35,11 @@ abstract class AbstractPlayerCharacter(
 ) : AbstractCharacter(name, maxHp, defense, turnsQueue), PlayerCharacter {
 
     private lateinit var scheduledExecutor: ScheduledExecutorService
-    private lateinit var _equippedWeapon: PhysicalWeapon
-    override val equippedWeapon: PhysicalWeapon
+    private lateinit var _equippedWeapon: Weapon
+    override val equippedWeapon: Weapon
         get() = _equippedWeapon
 
-    override fun equip(weapon: PhysicalWeapon) {
+    override fun equip(weapon: Weapon) {
         _equippedWeapon = weapon
     }
 

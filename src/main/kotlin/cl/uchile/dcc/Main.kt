@@ -1,25 +1,26 @@
 package cl.uchile.dcc
 
-import cl.uchile.dcc.finalreality.model.MagicWeapon
-import cl.uchile.dcc.finalreality.model.PhysicalWeapon
-import cl.uchile.dcc.finalreality.model.WeaponType
 import cl.uchile.dcc.finalreality.model.character.GameCharacter
 import cl.uchile.dcc.finalreality.model.character.player.BlackMage
 import cl.uchile.dcc.finalreality.model.character.player.Engineer
 import cl.uchile.dcc.finalreality.model.character.player.Knight
 import cl.uchile.dcc.finalreality.model.character.player.Thief
 import cl.uchile.dcc.finalreality.model.character.player.WhiteMage
+import cl.uchile.dcc.finalreality.model.weapon.Axe
+import cl.uchile.dcc.finalreality.model.weapon.Knife
+import cl.uchile.dcc.finalreality.model.weapon.Staff
+import cl.uchile.dcc.finalreality.model.weapon.Sword
 import java.util.concurrent.LinkedBlockingQueue
 import kotlin.random.Random
 
 fun main() {
     val queue = LinkedBlockingQueue<GameCharacter>()
     // Gives a random speed to each character to generate different waiting times
-    val armaLadron = PhysicalWeapon("daga", 2, Random.nextInt(1, 50), WeaponType.KNIFE)
-    val armaCaballero = PhysicalWeapon("espada", 4, Random.nextInt(1, 50), WeaponType.SWORD)
-    val armaIngeniero = PhysicalWeapon("llave inglesa", 3, Random.nextInt(1, 50), WeaponType.AXE)
-    val armaMagoBlanco = MagicWeapon("baston blanco", 5, Random.nextInt(1, 50), WeaponType.STAFF, 20)
-    val armaMagoNegro = MagicWeapon("baston negro", 5, Random.nextInt(1, 50), WeaponType.STAFF, 30)
+    val armaLadron = Knife("daga", 2, Random.nextInt(1, 50))
+    val armaCaballero = Sword("espada", 4, Random.nextInt(1, 50))
+    val armaIngeniero = Axe("llave inglesa", 3, Random.nextInt(1, 50))
+    val armaMagoBlanco = Staff("baston blanco", 5, Random.nextInt(1, 50), 20)
+    val armaMagoNegro = Staff("baston negro", 5, Random.nextInt(1, 50), 30)
     val ladron = Thief("Piñera", 10, 10, queue)
     val caballero = Knight("Caballo", 20, 15, queue)
     val ingeniero = Engineer("Yop", 15, 20, queue)
