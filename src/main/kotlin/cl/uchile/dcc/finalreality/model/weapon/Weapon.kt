@@ -1,7 +1,7 @@
 package cl.uchile.dcc.finalreality.model.weapon
 
 /**
- * An interface that holds all the atributes for the weapons.
+ * An interface that holds all the attributes for the weapons.
  *
  * @property name String
  *     The name of the weapon.

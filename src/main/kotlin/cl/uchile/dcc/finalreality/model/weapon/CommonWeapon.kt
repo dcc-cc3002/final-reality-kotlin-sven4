@@ -3,7 +3,7 @@ package cl.uchile.dcc.finalreality.model.weapon
 import cl.uchile.dcc.finalreality.exceptions.Require
 
 /**
- * An abstract class for the common weapons.
+ * An abstract class for the common weapons. Implements the [Weapon] interface.
  *
  * @property name String
  *     The name of the weapon.

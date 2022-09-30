@@ -3,7 +3,8 @@ package cl.uchile.dcc.finalreality.model.weapon
 import cl.uchile.dcc.finalreality.exceptions.Require
 
 /**
- * A class that holds all the information of a weapon.
+ * An abstract class for the magic weapons for the game. Implements the
+ * [Weapon] interface
  *
  * @property name String
  *     The name of the weapon.
