@@ -16,4 +16,14 @@ enemies controlled by the computer.
 
 ---
 
-**The rest of the documentation is left for the users of this template to complete**
+For the first assignment we refactored the classes in the character package, then we changed
+the herarchy for the weapon classes, and we created a class for every type of weapon in the game 
+(enum class was deleted for not following the open-closed letter in SOLID).
+
+We fixed the toString() method for every player character class, and we test our classes by creating
+objects on the Main.kt file.
+
+**For now the only way of using this project is to run the Main.kt script and check the print of the
+objects that we created.**
+
+There is also a UML diagram on UML directory.
