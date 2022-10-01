@@ -37,6 +37,6 @@ class Axe(
     override fun toString() = "Axe { " +
         "name: $name, " +
         "damage: $damage, " +
-        "weight: $weight" +
-        "} "
+        "weight: $weight " +
+        "}"
 }

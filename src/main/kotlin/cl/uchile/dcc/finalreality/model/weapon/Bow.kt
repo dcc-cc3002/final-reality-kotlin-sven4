@@ -37,6 +37,6 @@ class Bow(
     override fun toString() = "Bow { " +
         "name: $name, " +
         "damage: $damage, " +
-        "weight: $weight" +
-        "} "
+        "weight: $weight " +
+        "}"
 }

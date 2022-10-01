@@ -12,9 +12,9 @@ import java.util.concurrent.TimeUnit
  *
  * @param name The name of this enemy.
  * @property weight The weight of this enemy.
- * @param turnsQueue The queue with the characters waiting for their turn.
  * @param maxHp The maximum health points of this enemy.
  * @param defense The defense of this enemy.
+ * @param turnsQueue The queue with the characters waiting for their turn.
  *
  * @constructor Creates a new enemy with a name, a weight and the queue with the characters ready to
  *  play.

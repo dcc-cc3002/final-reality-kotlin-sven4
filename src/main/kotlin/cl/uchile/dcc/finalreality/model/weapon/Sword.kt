@@ -37,6 +37,6 @@ class Sword(
     override fun toString() = "Sword { " +
         "name: $name, " +
         "damage: $damage, " +
-        "weight: $weight" +
-        "} "
+        "weight: $weight " +
+        "}"
 }
