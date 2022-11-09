@@ -1,6 +1,6 @@
-package cl.uchile.dcc.finalreality.model.character
+package cl.uchile.dcc.finalreality.model.character.player
 
-import cl.uchile.dcc.finalreality.model.character.player.BlackMage
+import cl.uchile.dcc.finalreality.model.character.GameCharacter
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
@@ -10,7 +10,6 @@ import io.kotest.matchers.types.shouldBeSameInstanceAs
 import io.kotest.matchers.types.shouldNotBeSameInstanceAs
 import java.util.concurrent.BlockingQueue
 import java.util.concurrent.LinkedBlockingQueue
-
 
 class BlackMageTest : FunSpec(
     {
@@ -36,7 +35,7 @@ class BlackMageTest : FunSpec(
                 queue
             )
         }
-        test("A BlackMage should should be equal to itself") {
+        test("A BlackMage should be equal to itself") {
             blackmage1 shouldBeSameInstanceAs blackmage1
             blackmage1 shouldBe blackmage1
         }

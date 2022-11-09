@@ -1,6 +1,6 @@
-package cl.uchile.dcc.finalreality.model.character
+package cl.uchile.dcc.finalreality.model.character.player
 
-import cl.uchile.dcc.finalreality.model.character.player.WhiteMage
+import cl.uchile.dcc.finalreality.model.character.GameCharacter
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
@@ -35,7 +35,7 @@ class WhiteMageTest : FunSpec(
                 queue
             )
         }
-        test("A WhiteMage should should be equal to itself") {
+        test("A WhiteMage should be equal to itself") {
             blancomago1 shouldBeSameInstanceAs blancomago1
             blancomago1 shouldBe blancomago1
         }

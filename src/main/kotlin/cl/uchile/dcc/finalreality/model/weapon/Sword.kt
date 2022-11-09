@@ -23,5 +23,5 @@ class Sword(
         "name: $name, " +
         "damage: $damage, " +
         "weight: $weight" +
-        "} "
+        " }"
 }

@@ -23,5 +23,5 @@ class Bow(
         "name: $name, " +
         "damage: $damage, " +
         "weight: $weight" +
-        "} "
+        " }"
 }

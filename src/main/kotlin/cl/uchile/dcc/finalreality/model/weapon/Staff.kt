@@ -26,6 +26,6 @@ class Staff(
         "name: $name, " +
         "damage: $damage, " +
         "weight: $weight, " +
-        "magicDamage: $magicDamage " +
-        "}"
+        "magicDamage: $magicDamage" +
+        " }"
 }

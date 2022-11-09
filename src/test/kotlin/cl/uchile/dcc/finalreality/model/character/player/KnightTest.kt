@@ -1,6 +1,6 @@
-package cl.uchile.dcc.finalreality.model.character
+package cl.uchile.dcc.finalreality.model.character.player
 
-import cl.uchile.dcc.finalreality.model.character.player.Knight
+import cl.uchile.dcc.finalreality.model.character.GameCharacter
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
@@ -33,7 +33,7 @@ class KnightTest : FunSpec(
                 queue
             )
         }
-        test("A Knight should should be equal to itself") {
+        test("A Knight should be equal to itself") {
             caballo1 shouldBeSameInstanceAs caballo1
             caballo1 shouldBe caballo1
         }
