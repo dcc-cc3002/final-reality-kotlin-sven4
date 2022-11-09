@@ -49,7 +49,7 @@ class WhiteMage(
     override fun hashCode() = Objects.hash(WhiteMage::class, name, maxHp, maxMp, defense)
 
     override fun toString() = "WhiteMage { " +
-        "name: $name " +
+        "name: $name, " +
         "maxHp: $maxHp, " +
         "currentHp: $currentHp, " +
         "maxMp: $maxMp, " +
