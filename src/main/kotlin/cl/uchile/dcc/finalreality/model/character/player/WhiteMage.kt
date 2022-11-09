@@ -7,7 +7,6 @@
  */
 package cl.uchile.dcc.finalreality.model.character.player
 
-import cl.uchile.dcc.finalreality.exceptions.Require
 import cl.uchile.dcc.finalreality.model.character.GameCharacter
 import java.util.Objects
 import java.util.concurrent.BlockingQueue
@@ -34,12 +33,8 @@ class WhiteMage(
     maxMp: Int,
     defense: Int,
     turnsQueue: BlockingQueue<GameCharacter>
-) : AbstractPlayerCharacter(name, maxHp, defense, turnsQueue), Mage {
-    override val maxMp = Require.Stat(maxMp, "Max MP") atLeast 0
-    override var currentMp: Int = maxMp
-        set(value) {
-            field = Require.Stat(value, "Current MP") inRange 0..maxMp
-        }
+) : AbstractMage(name, maxHp, defense, maxMp, turnsQueue) {
+
     override fun equals(other: Any?) = when {
         this === other -> true
         other !is WhiteMage -> false

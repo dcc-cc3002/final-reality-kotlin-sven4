@@ -16,6 +16,7 @@ repositories {
 }
 
 dependencies {
+    implementation("io.kotest:kotest-assertions-core:5.5.0")
     implementation("io.kotest:kotest-property:5.4.2")
     testImplementation("io.kotest:kotest-runner-junit5-jvm:5.4.2")
 }

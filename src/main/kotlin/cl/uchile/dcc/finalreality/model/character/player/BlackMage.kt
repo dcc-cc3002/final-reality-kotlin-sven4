@@ -7,13 +7,12 @@
  */
 package cl.uchile.dcc.finalreality.model.character.player
 
-import cl.uchile.dcc.finalreality.exceptions.Require
 import cl.uchile.dcc.finalreality.model.character.GameCharacter
 import java.util.Objects
 import java.util.concurrent.BlockingQueue
 
 /**
- * A Black Mage is a type of [Mage] that can cast black magic.
+ * A Black Mage it's a type of [AbstractMage] and can cast black magic.
  *
  * @param name        the character's name
  * @param maxHp       the character's maximum health points
@@ -34,13 +33,7 @@ class BlackMage(
     maxMp: Int,
     defense: Int,
     turnsQueue: BlockingQueue<GameCharacter>
-) : AbstractPlayerCharacter(name, maxHp, defense, turnsQueue), Mage {
-    override val maxMp = Require.Stat(maxMp, "Max MP") atLeast 0
-    override var currentMp: Int = maxMp
-        set(value) {
-            field = Require.Stat(value, "Current MP") inRange 0..maxMp
-        }
-
+) : AbstractMage(name, maxHp, defense, maxMp, turnsQueue) {
     override fun equals(other: Any?) = when {
         this === other -> true
         other !is BlackMage -> false

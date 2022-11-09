@@ -7,13 +7,13 @@ import java.util.concurrent.ScheduledExecutorService
 /**
  * An abstract class that holds the common behaviour of all the characters in the game.
  *
- * @property name
+ * @param name
  *    The name of the character.
- * @property maxHp
+ * @param maxHp
  *    The maximum health points of the character.
- * @property defense
+ * @param defense
  *    The defense of the character.
- * @property turnsQueue
+ * @param turnsQueue
  *    The queue with the characters waiting for their turn.
  *
  * @author <a href="https://www.github.com/sven4">sven4</a>
