@@ -12,8 +12,8 @@ package cl.uchile.dcc.finalreality.exceptions
  * Object containing a series of methods to check if a condition is met.
  * If the condition is not met, an exception is thrown.
  *
- * @author <a href="https://github.com/r8vnhill">R8V</a>
- * @author ~Your name~
+ * @author <a href="https://github.com/sven4">sven4</a>
+ * @author ~Salvador Vásquez~
  */
 object Require {
 
