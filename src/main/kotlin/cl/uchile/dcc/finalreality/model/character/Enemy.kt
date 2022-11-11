@@ -1,4 +1,4 @@
-package cl.uchile.dcc.finalreality.model.character
+package kotlin.cl.uchile.dcc.finalreality.model.character
 
 import cl.uchile.dcc.finalreality.exceptions.Require
 import java.util.Objects

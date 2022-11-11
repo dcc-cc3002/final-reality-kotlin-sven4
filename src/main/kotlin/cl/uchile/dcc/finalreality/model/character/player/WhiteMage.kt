@@ -5,9 +5,10 @@
  * You should have received a copy of the license along with this
  * work. If not, see <http://creativecommons.org/licenses/by/4.0/>.
  */
-package cl.uchile.dcc.finalreality.model.character.player
+package kotlin.cl.uchile.dcc.finalreality.model.character.player
 
-import cl.uchile.dcc.finalreality.model.character.GameCharacter
+import kotlin.cl.uchile.dcc.finalreality.model.character.GameCharacter
+import kotlin.cl.uchile.dcc.finalreality.model.weapon.Weapon
 import java.util.Objects
 import java.util.concurrent.BlockingQueue
 
@@ -56,4 +57,5 @@ class WhiteMage(
         "currentMp: $currentMp, " +
         "defense: $defense " +
         "}"
+    override fun equipStaff(weapon: Weapon) = weapon
 }

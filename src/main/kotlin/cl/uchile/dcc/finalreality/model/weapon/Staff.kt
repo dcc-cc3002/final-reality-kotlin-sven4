@@ -1,5 +1,6 @@
-package cl.uchile.dcc.finalreality.model.weapon
+package kotlin.cl.uchile.dcc.finalreality.model.weapon
 
+import kotlin.cl.uchile.dcc.finalreality.model.character.player.PlayerCharacter
 import java.util.Objects
 
 class Staff(
@@ -28,4 +29,8 @@ class Staff(
         "weight: $weight, " +
         "magicDamage: $magicDamage" +
         " }"
+
+    override fun getEquiped(character: PlayerCharacter): Weapon {
+        return character.equipStaff(this)
+    }
 }

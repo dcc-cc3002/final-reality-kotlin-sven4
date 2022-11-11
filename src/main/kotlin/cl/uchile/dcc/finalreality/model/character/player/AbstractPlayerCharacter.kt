@@ -5,15 +5,16 @@
  * You should have received a copy of the license along with this
  * work. If not, see <http://creativecommons.org/licenses/by/4.0/>.
  */
-package cl.uchile.dcc.finalreality.model.character.player
+package kotlin.cl.uchile.dcc.finalreality.model.character.player
 
-import cl.uchile.dcc.finalreality.model.character.AbstractCharacter
-import cl.uchile.dcc.finalreality.model.character.GameCharacter
-import cl.uchile.dcc.finalreality.model.weapon.Weapon
+import cl.uchile.dcc.finalreality.exceptions.InvalidWeaponEquipped
+import kotlin.cl.uchile.dcc.finalreality.model.character.AbstractCharacter
+import kotlin.cl.uchile.dcc.finalreality.model.character.GameCharacter
+import kotlin.cl.uchile.dcc.finalreality.model.weapon.Weapon
+import java.util.concurrent.TimeUnit
 import java.util.concurrent.BlockingQueue
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledExecutorService
-import java.util.concurrent.TimeUnit
 
 /**
  * A class that holds all the information of a player-controlled character in the game.
@@ -32,7 +33,8 @@ abstract class AbstractPlayerCharacter(
     maxHp: Int,
     defense: Int,
     turnsQueue: BlockingQueue<GameCharacter>
-) : AbstractCharacter(name, maxHp, defense, turnsQueue), PlayerCharacter {
+) : AbstractCharacter(name, maxHp, defense, turnsQueue),
+    PlayerCharacter {
 
     private lateinit var scheduledExecutor: ScheduledExecutorService
     private lateinit var _equippedWeapon: Weapon
@@ -40,7 +42,27 @@ abstract class AbstractPlayerCharacter(
         get() = _equippedWeapon
 
     override fun equip(weapon: Weapon) {
-        _equippedWeapon = weapon
+        this._equippedWeapon = weapon.getEquiped(this)
+    }
+
+    override fun equipAxe(weapon: Weapon): Weapon {
+        throw InvalidWeaponEquipped("This class cannot equip an Axe.")
+    }
+
+    override fun equipBow(weapon: Weapon): Weapon {
+        throw InvalidWeaponEquipped("This class cannot equip a Bow.")
+    }
+
+    override fun equipKnife(weapon: Weapon): Weapon {
+        throw InvalidWeaponEquipped("This class cannot equip a Knife.")
+    }
+
+    override fun equipStaff(weapon: Weapon): Weapon {
+        throw InvalidWeaponEquipped("This class cannot equip a Staff.")
+    }
+
+    override fun equipSword(weapon: Weapon): Weapon {
+        throw InvalidWeaponEquipped("This class cannot equip a Sword.")
     }
 
     override fun waitTurn() {

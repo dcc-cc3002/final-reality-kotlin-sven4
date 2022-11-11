@@ -5,9 +5,9 @@
  * You should have received a copy of the license along with this
  * work. If not, see <http://creativecommons.org/licenses/by/4.0/>.
  */
-package cl.uchile.dcc.finalreality.model.character.player
+package kotlin.cl.uchile.dcc.finalreality.model.character.player
 
-import cl.uchile.dcc.finalreality.model.weapon.Weapon
+import kotlin.cl.uchile.dcc.finalreality.model.weapon.Weapon
 
 /**
  * A character controlled by the user.
@@ -24,4 +24,9 @@ interface PlayerCharacter {
      * Equips a weapon to the character.
      */
     fun equip(weapon: Weapon)
+    fun equipAxe(weapon: Weapon): Weapon
+    fun equipStaff(weapon: Weapon): Weapon
+    fun equipSword(weapon: Weapon): Weapon
+    fun equipKnife(weapon: Weapon): Weapon
+    fun equipBow(weapon: Weapon): Weapon
 }

@@ -1,4 +1,6 @@
-package cl.uchile.dcc.finalreality.model.weapon
+package kotlin.cl.uchile.dcc.finalreality.model.weapon
+
+import kotlin.cl.uchile.dcc.finalreality.model.character.player.PlayerCharacter
 
 /**
  * An interface that holds all the atributes for the weapons.
@@ -18,4 +20,5 @@ interface Weapon {
     val name: String
     val damage: Int
     val weight: Int
+    fun getEquiped(character: PlayerCharacter): Weapon
 }

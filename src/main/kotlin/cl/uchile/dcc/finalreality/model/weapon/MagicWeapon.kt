@@ -1,4 +1,4 @@
-package cl.uchile.dcc.finalreality.model.weapon
+package kotlin.cl.uchile.dcc.finalreality.model.weapon
 
 import cl.uchile.dcc.finalreality.exceptions.Require
 

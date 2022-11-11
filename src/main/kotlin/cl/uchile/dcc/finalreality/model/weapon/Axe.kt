@@ -1,5 +1,6 @@
-package cl.uchile.dcc.finalreality.model.weapon
+package kotlin.cl.uchile.dcc.finalreality.model.weapon
 
+import kotlin.cl.uchile.dcc.finalreality.model.character.player.PlayerCharacter
 import java.util.Objects
 
 class Axe(
@@ -24,4 +25,8 @@ class Axe(
         "damage: $damage, " +
         "weight: $weight" +
         " }"
+
+    override fun getEquiped(character: PlayerCharacter): Weapon {
+        return character.equipAxe(this)
+    }
 }

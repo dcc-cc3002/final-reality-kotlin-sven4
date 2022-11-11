@@ -1,4 +1,4 @@
-package cl.uchile.dcc.finalreality.model.character
+package kotlin.cl.uchile.dcc.finalreality.model.character
 
 /**
  * This represents a character from the game.
