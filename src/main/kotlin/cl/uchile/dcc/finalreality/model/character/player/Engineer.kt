@@ -5,9 +5,10 @@
  * You should have received a copy of the license along with this
  * work. If not, see <http://creativecommons.org/licenses/by/4.0/>.
  */
-package cl.uchile.dcc.finalreality.model.character.player
+package kotlin.cl.uchile.dcc.finalreality.model.character.player
 
-import cl.uchile.dcc.finalreality.model.character.GameCharacter
+import kotlin.cl.uchile.dcc.finalreality.model.character.GameCharacter
+import kotlin.cl.uchile.dcc.finalreality.model.weapon.Weapon
 import java.util.Objects
 import java.util.concurrent.BlockingQueue
 
@@ -23,31 +24,36 @@ import java.util.concurrent.BlockingQueue
  *
  * @property currentHp The current HP of the character.
  *
- * @author <a href="https://www.github.com/r8vnhill">R8V</a>
- * @author ~Your name~
+ * @author <a href="https://www.github.com/sven4">sven4</a>
+ * @author ~Salvador Vasquez~
  */
 class Engineer(
-    name: String, maxHp: Int, defense: Int,
+    name: String,
+    maxHp: Int,
+    defense: Int,
     turnsQueue: BlockingQueue<GameCharacter>
-) :
-    AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
+) : AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
 
     override fun equals(other: Any?) = when {
-        this === other                 -> true
-        other !is Engineer             -> false
+        this === other -> true
+        other !is Engineer -> false
         hashCode() != other.hashCode() -> false
-        name != other.name             -> false
-        maxHp != other.maxHp           -> false
-        defense != other.defense       -> false
-        else                           -> true
+        name != other.name -> false
+        maxHp != other.maxHp -> false
+        defense != other.defense -> false
+        else -> true
     }
 
     override fun hashCode() =
         Objects.hash(Engineer::class, name, maxHp, defense)
 
     override fun toString() = "Engineer { " +
-      "name: '$name', " +
-      "maxHp: $maxHp, " +
-      "defense: $defense " +
-      "}"
+        "name: $name, " +
+        "maxHp: $maxHp, " +
+        "currentHp: $currentHp, " +
+        "defense: $defense " +
+        "}"
+
+    override fun equipAxe(weapon: Weapon) = weapon
+    override fun equipBow(weapon: Weapon) = weapon
 }
