@@ -5,10 +5,11 @@
  * You should have received a copy of the license along with this
  * work. If not, see <http://creativecommons.org/licenses/by/4.0/>.
  */
-package cl.uchile.dcc.finalreality.model.character.player
+package kotlin.cl.uchile.dcc.finalreality.model.character.player
 
-import cl.uchile.dcc.finalreality.model.character.GameCharacter
-import java.util.*
+import kotlin.cl.uchile.dcc.finalreality.model.character.GameCharacter
+import kotlin.cl.uchile.dcc.finalreality.model.weapon.Weapon
+import java.util.Objects
 import java.util.concurrent.BlockingQueue
 
 /**
@@ -27,25 +28,31 @@ import java.util.concurrent.BlockingQueue
  * @author ~Your name~
  */
 class Knight(
-    name: String, maxHp: Int, defense: Int,
+    name: String,
+    maxHp: Int,
+    defense: Int,
     turnsQueue: BlockingQueue<GameCharacter>
 ) : AbstractPlayerCharacter(name, maxHp, defense, turnsQueue) {
     override fun equals(other: Any?) = when {
-        this === other                 -> true
-        other !is Knight               -> false
+        this === other -> true
+        other !is Knight -> false
         hashCode() != other.hashCode() -> false
-        name != other.name             -> false
-        maxHp != other.maxHp           -> false
-        defense != other.defense       -> false
-        else                           -> true
+        name != other.name -> false
+        maxHp != other.maxHp -> false
+        defense != other.defense -> false
+        else -> true
     }
 
     override fun hashCode() = Objects.hash(Knight::class, name, maxHp, defense)
 
     override fun toString() = "Knight { " +
-      "name: '$name', " +
-      "maxHp: $maxHp, " +
-      "defense: $defense, " +
-      "currentHp: $currentHp " +
-      "}"
+        "name: $name, " +
+        "maxHp: $maxHp, " +
+        "currentHp: $currentHp, " +
+        "defense: $defense " +
+        "}"
+
+    override fun equipSword(weapon: Weapon) = weapon
+    override fun equipAxe(weapon: Weapon) = weapon
+    override fun equipKnife(weapon: Weapon) = weapon
 }
